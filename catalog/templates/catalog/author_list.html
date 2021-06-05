@@ -1,0 +1,27 @@
+{%  extends "layout.html" %}
+
+{%  block content %}
+<table border="1" class="table">
+    
+    {# Iterar libros del catalogo #} 
+    {# {{ books | join:", " }} #}
+    {%  load format_name %}
+    <tr>
+        <th>ID</th>
+        
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Nacionalidad</th>
+        <th>Genero</th>
+    </tr>
+    {% for author in object_list %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td>{{ author.first_name }}</td>
+        <td>{{ author.last_name }}</td>
+        <td>{{ author.nationality }}</td>
+        <td>{{ author.genere }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}  

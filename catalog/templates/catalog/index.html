@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+<a href="/catalog/books" class="btn btn-success">Agregar</a>
+<table border="1" class="table">
+    {# Iterar libros del catalogo #} {# {{ books | join:", " }} #} {% load format_name %}
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Editorial</th>
+        <th>Year</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author | format_name }}</td>
+        <td><a href="/catalog/{{ book.editorial}}/books">{{ book.editorial }}</a></td>
+        <td>{{ book.year | add:"2" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
